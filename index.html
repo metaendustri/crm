@@ -379,7 +379,6 @@ th { background: #f8fafc; color: #667085; font-size: 12px; font-weight: 700; }
         </div>
         <button class="btn primary" style="width:100%">Giriş Yap</button>
         <p id="loginErr" class="danger-text"></p>
-        <div class="note">Canlı sürüm hazırlığı açıktır. Giriş, Supabase kullanıcı hesabınla yapılır.</div>
     </form>
 </div>
 
@@ -436,7 +435,7 @@ th { background: #f8fafc; color: #667085; font-size: 12px; font-weight: 700; }
                             <div class="dash-hero-main">
                                 <div class="dash-hero-copy">
                                     <div class="dash-kicker">META ENDUSTRI CRM</div>
-                                    <div class="dash-hero-sub">Teklifleri, bayi akışını ve kritik görevleri aynı ekranda takip edin. Üst bölüm tek kolonda sadeleştirildi; sağ tarafa sıkışan özet artık geniş KPI kartları olarak altta akıyor.</div>
+                                    <div class="dash-hero-sub">Teklifleri, bayi akışını ve kritik görevleri aynı ekranda takip edin.</div>
                                     <div class="dash-hero-actions">
                                         <button class="btn primary" onclick="newQuote()">+ Yeni Teklif</button>
                                         <button class="btn ghost" onclick="openModal('quickAddModal')">+ Hızlı Kayıt</button>
@@ -450,17 +449,17 @@ th { background: #f8fafc; color: #667085; font-size: 12px; font-weight: 700; }
                                 <div class="hero-stat clickable" onclick="openDashboardTarget('open-opps')">
                                     <div class="hero-stat-label">Açık Fırsat</div>
                                     <div class="hero-stat-value" id="heroOpenOpps">0</div>
-                                    <div class="hero-stat-note">Satış ekibinin şu anda aktif olarak takip ettiği fırsat sayısı.</div>
+                                    <div class="hero-stat-note">Aktif takipteki fırsat sayısı.</div>
                                 </div>
                                 <div class="hero-stat clickable" onclick="openDashboardTarget('quote-volume')">
                                     <div class="hero-stat-label">Aylık Teklif Hacmi</div>
                                     <div class="hero-stat-value" id="heroQuoteVolume">₺0</div>
-                                    <div class="hero-stat-note">Bu ay üretilen teklif ve proforma toplam büyüklüğü.</div>
+                                    <div class="hero-stat-note">Bu ay üretilen teklif ve proforma toplamı.</div>
                                 </div>
                                 <div class="hero-stat clickable" onclick="openDashboardTarget('critical-task')">
                                     <div class="hero-stat-label">Kritik Görev</div>
                                     <div class="hero-stat-value" id="heroUrgentTasks">0</div>
-                                    <div class="hero-stat-note">Bugün takip gerektiren yüksek öncelikli açık aksiyonlar.</div>
+                                    <div class="hero-stat-note">Bugün takip gerektiren yüksek öncelikli aksiyonlar.</div>
                                 </div>
                             </div>
                         </div>
@@ -531,8 +530,7 @@ th { background: #f8fafc; color: #667085; font-size: 12px; font-weight: 700; }
                         </div>
                         <div class="card">
                             <div class="section-head">
-                                <h3>Kisa Ozet</h3>
-                                <span class="section-chip">Durum Kartlari</span>
+                                <h3>Özet</h3>
                             </div>
                             <div id="myDashboard"></div>
                         </div>
@@ -689,54 +687,6 @@ th { background: #f8fafc; color: #667085; font-size: 12px; font-weight: 700; }
                             <button class="btn small active" onclick="renderOpps('list')">Liste</button>
                             <button class="btn small" onclick="renderOpps('kanban')">Satış Havuzu</button>
                         </div>
-                        <div class="compact-tools">
-                            <div class="tool-group">
-                                <button class="btn ghost" onclick="togglePopover('oppFilterPanel', event)">Filtrele</button>
-                                <div id="oppFilterPanel" class="popover-panel" onclick="event.stopPropagation()">
-                                    <div class="field" style="margin:0">
-                                        <label>Grup</label>
-                                        <select id="oppCategoryFilter">
-                                            <option value="">Tüm Gruplar</option>
-                                            <option value="pending">Devam Eden</option>
-                                            <option value="completed">Tamamlanan</option>
-                                            <option value="cancelled">İptal / Kaybedilen</option>
-                                        </select>
-                                    </div>
-                                    <div class="field" style="margin:0">
-                                        <label>Durum</label>
-                                        <select id="oppStageFilter">
-                                            <option value="">Tüm Durumlar</option>
-                                        </select>
-                                    </div>
-                                    <div class="field" style="margin:0">
-                                        <label>Hafta</label>
-                                        <select id="oppWeekFilter">
-                                            <option value="">Tüm Haftalar</option>
-                                        </select>
-                                    </div>
-                                    <div class="popover-actions">
-                                        <button class="btn primary small" onclick="applyFilters('oppFilterPanel','opportunities')">Uygula</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tool-group">
-                                <button class="btn ghost" onclick="togglePopover('oppSortPanel', event)">Sırala</button>
-                                <div id="oppSortPanel" class="popover-panel" onclick="event.stopPropagation()">
-                                    <div class="field" style="margin:0">
-                                        <label>Sıralama</label>
-                                        <select id="oppSortFilter">
-                                            <option value="date-desc">Tarihe Göre Yeni</option>
-                                            <option value="date-asc">Tarihe Göre Eski</option>
-                                            <option value="amount-desc">Tutara Göre Yüksek</option>
-                                            <option value="amount-asc">Tutara Göre Düşük</option>
-                                        </select>
-                                    </div>
-                                    <div class="popover-actions">
-                                        <button class="btn primary small" onclick="applyFilters('oppSortPanel','opportunities')">Uygula</button>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
                         <div id="oppsView"></div>
                     </div>
                 </div>
@@ -759,48 +709,6 @@ th { background: #f8fafc; color: #667085; font-size: 12px; font-weight: 700; }
                             <option>Reddedildi</option>
                             <option>İptal</option>
                         </select>
-                    </div>
-                    <div class="compact-tools">
-                        <div class="popover">
-                            <button class="btn ghost" onclick="togglePopover('quoteFilterPanel', event)">Filtrele</button>
-                            <div id="quoteFilterPanel" class="popover-panel" onclick="event.stopPropagation()">
-                                <div class="field" style="margin:0">
-                                    <label>Grup</label>
-                                    <select id="quoteCategoryFilter">
-                                        <option value="">Tüm Gruplar</option>
-                                        <option value="pending">Devam Eden</option>
-                                        <option value="completed">Tamamlanan</option>
-                                        <option value="cancelled">İptal / Reddedilen</option>
-                                    </select>
-                                </div>
-                                <div class="field" style="margin:0">
-                                    <label>Hafta</label>
-                                    <select id="quoteWeekFilter">
-                                        <option value="">Tüm Haftalar</option>
-                                    </select>
-                                </div>
-                                <div class="popover-actions">
-                                    <button class="btn primary small" onclick="applyFilters('quoteFilterPanel','quotes')">Uygula</button>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="popover">
-                            <button class="btn ghost" onclick="togglePopover('quoteSortPanel', event)">Sırala</button>
-                            <div id="quoteSortPanel" class="popover-panel" onclick="event.stopPropagation()">
-                                <div class="field" style="margin:0">
-                                    <label>Sıralama</label>
-                                    <select id="quoteSortFilter">
-                                        <option value="date-desc">Tarihe Göre Yeni</option>
-                                        <option value="date-asc">Tarihe Göre Eski</option>
-                                        <option value="amount-desc">Tutara Göre Yüksek</option>
-                                        <option value="amount-asc">Tutara Göre Düşük</option>
-                                    </select>
-                                </div>
-                                <div class="popover-actions">
-                                    <button class="btn primary small" onclick="applyFilters('quoteSortPanel','quotes')">Uygula</button>
-                                </div>
-                            </div>
-                        </div>
                     </div>
                     <div id="quotesWrap" style="margin-top:12px"></div>
                 </div>
@@ -1030,47 +938,6 @@ th { background: #f8fafc; color: #667085; font-size: 12px; font-weight: 700; }
                             <div class="tabs">
                                 <button class="btn small active" onclick="renderTasks('list')">Liste</button>
                                 <button class="btn small" onclick="renderTasks('kanban')">Kanban</button>
-                            </div>
-                        </div>
-                        <div class="compact-tools">
-                            <div class="tool-group">
-                                <button class="btn ghost" onclick="togglePopover('taskFilterPanel', event)">Filtrele</button>
-                                <div id="taskFilterPanel" class="popover-panel" onclick="event.stopPropagation()">
-                                    <div class="field" style="margin:0">
-                                        <label>Grup</label>
-                                        <select id="taskCategoryFilter">
-                                            <option value="">Tüm Gruplar</option>
-                                            <option value="pending">Devam Eden</option>
-                                            <option value="completed">Tamamlanan</option>
-                                            <option value="cancelled">İptal Edilen</option>
-                                        </select>
-                                    </div>
-                                    <div class="field" style="margin:0">
-                                        <label>Hafta</label>
-                                        <select id="taskWeekFilter">
-                                            <option value="">Tüm Haftalar</option>
-                                        </select>
-                                    </div>
-                                    <div class="popover-actions">
-                                        <button class="btn primary small" onclick="applyFilters('taskFilterPanel','tasks')">Uygula</button>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="tool-group">
-                                <button class="btn ghost" onclick="togglePopover('taskSortPanel', event)">Sırala</button>
-                                <div id="taskSortPanel" class="popover-panel" onclick="event.stopPropagation()">
-                                    <div class="field" style="margin:0">
-                                        <label>Sıralama</label>
-                                        <select id="taskSortFilter">
-                                            <option value="date-asc">Tarihe Göre Yaklaşan</option>
-                                            <option value="date-desc">Tarihe Göre Yeni</option>
-                                            <option value="priority-desc">Önceliğe Göre Kritik</option>
-                                        </select>
-                                    </div>
-                                    <div class="popover-actions">
-                                        <button class="btn primary small" onclick="applyFilters('taskSortPanel','tasks')">Uygula</button>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                         <div id="tasksView"></div>
@@ -2179,6 +2046,14 @@ function matchesWeek(dateStr, selectedWeek){
     return isoWeekInfo(dateStr)?.key === selectedWeek;
 }
 
+function matchesDateRange(dateStr, startDate, endDate){
+    if(!startDate && !endDate) return true;
+    if(!dateStr) return false;
+    if(startDate && dateStr < startDate) return false;
+    if(endDate && dateStr > endDate) return false;
+    return true;
+}
+
 function oppCategory(stage){
     if(['Tamamlandı','Kapatıldı','Gönderildi','Kazanıldı'].includes(stage)) return 'completed';
     if(['İptal Edildi','Kaybedildi'].includes(stage)) return 'cancelled';
@@ -2297,15 +2172,18 @@ function toggleNotiDropdown(e) {
 document.addEventListener('click', () => $('notiDropdown').classList.remove('open'));
 
 function closeAllPopovers(){
-    document.querySelectorAll('.popover-panel.open').forEach(el=>el.classList.remove('open'));
+    document.querySelectorAll('.popover-panel').forEach(el=>el.classList.add('hidden'));
 }
 
 function togglePopover(id, e){
-    e.stopPropagation();
+    e = e || window.event;
+    if(e && typeof e.stopPropagation === 'function') e.stopPropagation();
     const panel=$(id);
-    const willOpen=!panel.classList.contains('open');
+    if(!panel) return false;
+    const willOpen=panel.classList.contains('hidden');
     closeAllPopovers();
-    if(willOpen) panel.classList.add('open');
+    if(willOpen) panel.classList.remove('hidden');
+    return false;
 }
 
 function applyFilters(panelId, target){
@@ -2314,7 +2192,10 @@ function applyFilters(panelId, target){
     if(target==='quotes') renderQuotes();
     if(target==='tasks') renderTasks();
 }
-document.addEventListener('click', closeAllPopovers);
+document.addEventListener('click', (e)=>{
+    if(e.target.closest('.popover') || e.target.closest('.tool-group')) return;
+    closeAllPopovers();
+});
 
 function clearAllNotifications(e) {
     e.stopPropagation();
@@ -2602,9 +2483,11 @@ function renderOpps(mode='listmode'){
     const categoryFilter = $('oppCategoryFilter')?.value || '';
     const stageFilter = $('oppStageFilter')?.value || '';
     const weekFilter = $('oppWeekFilter')?.value || '';
+    const startDate = $('oppDateStart')?.value || '';
+    const endDate = $('oppDateEnd')?.value || '';
     const sortKey = $('oppSortFilter')?.value || 'date-desc';
     const filtered = arr
-        .filter(o => (!categoryFilter || oppCategory(o.stage)===categoryFilter) && (!stageFilter || o.stage===stageFilter) && matchesWeek(o.close, weekFilter))
+        .filter(o => (!categoryFilter || oppCategory(o.stage)===categoryFilter) && (!stageFilter || o.stage===stageFilter) && matchesWeek(o.close, weekFilter) && matchesDateRange(o.close, startDate, endDate))
         .sort((a,b)=>compareRecords(a,b,sortKey,'close','amount'));
     
     if(isKanban){
@@ -2833,9 +2716,9 @@ function saveQuote(){
 
 function renderQuotes(){
     const arr=get('crm_quotes',[]).filter(canSee); 
-    const q=($('quoteSearch')?.value||'').toLowerCase(), st=$('quoteStatusFilter')?.value||'', category=$('quoteCategoryFilter')?.value||'', week=$('quoteWeekFilter')?.value||'', sortKey=$('quoteSortFilter')?.value||'date-desc'; 
+    const q=($('quoteSearch')?.value||'').toLowerCase(), st=$('quoteStatusFilter')?.value||'', category=$('quoteCategoryFilter')?.value||'', week=$('quoteWeekFilter')?.value||'', startDate=$('quoteDateStart')?.value||'', endDate=$('quoteDateEnd')?.value||'', sortKey=$('quoteSortFilter')?.value||'date-desc'; 
     const filtered = arr
-        .filter(x=>(!st||x.status===st)&&(!category||quoteCategory(x.status)===category)&&matchesWeek(x.date, week)&&((x.no||'').toLowerCase().includes(q)||(x.customer||'').toLowerCase().includes(q)||(x.owner||'').toLowerCase().includes(q)))
+        .filter(x=>(!st||x.status===st)&&(!category||quoteCategory(x.status)===category)&&matchesWeek(x.date, week)&&matchesDateRange(x.date, startDate, endDate)&&((x.no||'').toLowerCase().includes(q)||(x.customer||'').toLowerCase().includes(q)||(x.owner||'').toLowerCase().includes(q)))
         .sort((a,b)=>compareRecords(a,b,sortKey,'date','total'));
     const groups={pending:[],completed:[],cancelled:[]};
     filtered.forEach(x=>groups[quoteCategory(x.status)].push(`
@@ -3094,8 +2977,10 @@ function renderTasks(mode='listmode'){
     const isKanban = currentTaskView === 'kanban';
     const category = $('taskCategoryFilter')?.value || '';
     const week = $('taskWeekFilter')?.value || '';
+    const startDate = $('taskDateStart')?.value || '';
+    const endDate = $('taskDateEnd')?.value || '';
     const sortKey = $('taskSortFilter')?.value || 'date-asc';
-    const filtered = arr.filter(t=>(!category || taskCategory(t.status)===category) && matchesWeek(t.due, week)).sort((a,b)=>compareRecords(a,b,sortKey,'due',''));
+    const filtered = arr.filter(t=>(!category || taskCategory(t.status)===category) && matchesWeek(t.due, week) && matchesDateRange(t.due, startDate, endDate)).sort((a,b)=>compareRecords(a,b,sortKey,'due',''));
     
     if(isKanban){
         document.querySelector('#tasks .tabs button:nth-child(1)').classList.remove('active');
